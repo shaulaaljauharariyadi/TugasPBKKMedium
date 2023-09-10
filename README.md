@@ -19,8 +19,7 @@ Arsitektur Rails menggunakan pola Model-View-Controller(MVC) dimana Setelah brow
 
 ## Source Code Sample
 Berikut contoh source code Ruby on Rails
-```
-ruby
+```ruby
 # Model
 class Post < ApplicationRecord
   validates :title, presence: true
