@@ -6,7 +6,7 @@ Ruby on Rails,atau disebut Rails adalah web development framework yang dibangun 
 ## Framework's Comparison
 Rails dapat dibandingkan dengan dua framework web populer lainnya, yaitu Django (Python) dan Laravel (PHP), dalam beberapa aspek berikut:
 
-   - Bahasa Pemrograman: Rails menggunakan Ruby, sedangkan Django menggunakan Python dan Laravel menggunakan PHP.
+   - Bahasa Pemrograman: Rails menggunakan Ruby, sedangkan Django menggunakan Python dan Laravel menggunakan PHP. Rails tidak bisa berjalan di atas bahasa pemrograman lain, seperti Python atau PHP. Rails juga mengikuti semua aturan yang ditetapkan Ruby. Rails dibuat untuk meningkatkan kemampuan Ruby itu sendiri, dengan begitu, Ruby on Rails bisa melakukan hal-hal yang tidak dapat dilakukan Ruby secara native.
    - Konvensi vs. Konfigurasi: Rails mengutamakan konvensi daripada konfigurasi, sementara Django dan Laravel cenderung lebih berorientasi pada konfigurasi.
    - ORM (Object-Relational Mapping): Rails memiliki ORM yang kuat bernama ActiveRecord, yang memungkinkan pengembang untuk berinteraksi dengan database menggunakan objek Ruby. Django memiliki Django ORM, dan Laravel menggunakan Eloquent ORM.
    - Komunitas dan Ekosistem: Rails memiliki komunitas besar dan ekosistem yang kaya, sementara Django dan Laravel juga memiliki komunitas yang kuat, tetapi dalam bahasa pemrograman yang berbeda.
