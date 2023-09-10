@@ -17,3 +17,29 @@ Rails dapat dibandingkan dengan dua framework web populer lainnya, yaitu Django 
 
 Arsitektur Rails menggunakan pola Model-View-Controller(MVC) dimana Setelah browser melakukan web request pada artikel di suatu web, kemudian *request* tersebut akan diteruskan menuju router yang lalu akan diteruskan menuju controller. Controller akan meminta model untuk mengambil data dan render tampilan yang berada di database sesuai *request* yang diberikan. Lalu model akan memberikan data dan render tampilan artikel tersebut ke controller. Kemudian controller memberikan view data dan render tampilan(UI) yang di-*request* tersebut, selanjutnya view akan meneruskan langsung ke web server dan lalu user dapat melihat dan mengakses artikel tersebut dari browser setelah web server menerima data yang di-*request* dari view. Rails mengikuti konsep konvensi diatas konfigurasi dimana pada ilustrasi ini kita hanya perlu melakukan konfigurasi pada bagian router dan komponen lain menggunakan komponen default dari framework rails itu sendiri. 
 
+## Source Code Sample
+Berikut contoh source code Ruby on Rails
+```
+ruby
+# Model
+class Post < ApplicationRecord
+  validates :title, presence: true
+  validates :content, presence: true
+end
+
+# View (View menggunakan HTML + Ruby)
+<%= @post.title %>
+<%= @post.content %>
+
+# Controller
+class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+  end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+end
+```
+
