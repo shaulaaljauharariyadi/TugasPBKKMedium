@@ -11,3 +11,7 @@ Rails dapat dibandingkan dengan dua framework web populer lainnya, yaitu Django 
    - ORM (Object-Relational Mapping): Rails memiliki ORM yang kuat bernama ActiveRecord, yang memungkinkan pengembang untuk berinteraksi dengan database menggunakan objek Ruby. Django memiliki Django ORM, dan Laravel menggunakan Eloquent ORM.
    - Komunitas dan Ekosistem: Rails memiliki komunitas besar dan ekosistem yang kaya, sementara Django dan Laravel juga memiliki komunitas yang kuat, tetapi dalam bahasa pemrograman yang berbeda.
    - Skalabilitas: Rails, Django, dan Laravel semuanya dapat digunakan untuk membangun aplikasi yang dapat diskalakan dengan baik, tetapi pendekatan dan alat yang digunakan mungkin berbeda.
+
+## Framework's architecture  illustration
+![Rails Illustration](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*KK61kGXrkaFBDfY7uWukyQ.png)
+
