@@ -14,5 +14,6 @@ Rails dapat dibandingkan dengan dua framework web populer lainnya, yaitu Django 
 
 ## Framework's architecture  illustration
 ![Rails Illustration](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*KK61kGXrkaFBDfY7uWukyQ.png)
+
 Arsitektur Rails menggunakan pola Model-View-Controller(MVC) dimana Setelah browser melakukan web request pada artikel di suatu web,kemudian request tersebut akan diteruskan menuju router yang kemudian akan diteruskan menuju controller.controller akan meminta model untuk mengambil data dan render tampilan yang berada di database sesuai request yang diberikan.Lalu model akan memberikan data dan render tampilan artikel tersebut ke controller.Kemudian controller memberikan view data dan render tampilan(UI) yang direquest tersebut kemudian view akan meneruskan langsung ke web server yang kemudian user dapat melihat dan mengakses artikel tersebut dari browser setelah web server menerima data yang direquest dari view.Rails mengikuti konsep konvensi diatas konfigurasi dimana pada ilustrasi ini kita hanya perlu melakukan konfigurasi pada bagian router dan komponen lain menggunakan komponen default dari framework rails itu sendiri. 
 
