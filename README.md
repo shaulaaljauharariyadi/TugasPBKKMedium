@@ -43,7 +43,7 @@ end
 ```
 
 ## Reference
--Rails official website (https://rubyonrails.org/)
--Ruby on Rails Guides (https://guides.rubyonrails.org/)
--https://medium.com/the-renaissance-developer/ruby-on-rails-http-mvc-and-routes-f02215a46a84
+- Rails official website (https://rubyonrails.org/)
+- Ruby on Rails Guides (https://guides.rubyonrails.org/)
+- Rails architecture illustration (https://medium.com/the-renaissance-developer/ruby-on-rails-http-mvc-and-routes-f02215a46a84)
 
