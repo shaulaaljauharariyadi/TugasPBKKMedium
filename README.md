@@ -41,9 +41,13 @@ class PostsController < ApplicationController
   end
 end
 ```
+Untuk bacaan lebih lanjut dan tutorial tentang Ruby on Rails, dapat mengunjungi situs web resmi Rails (https://rubyonrails.org/) dan sumber daya online seperti Ruby on Rails Guides (https://guides.rubyonrails.org/) dan Ruby on Rails Tutorial by Michael Hartl (https://www.railstutorial.org/).
 
 ## Reference
 - Rails official website (https://rubyonrails.org/)
 - Ruby on Rails Guides (https://guides.rubyonrails.org/)
 - Rails architecture illustration (https://medium.com/the-renaissance-developer/ruby-on-rails-http-mvc-and-routes-f02215a46a84)
+- https://www.niagahoster.co.id/blog/ruby-on-rails-adalah/
+- https://codingstudio.id/blog/bahasa-pemrograman-ruby/
+- https://ygok17.medium.com/what-is-object-relational-mapping-orm-in-ruby-on-rails-68d6b89fc75a
 
