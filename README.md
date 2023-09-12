@@ -48,7 +48,7 @@ Ruby on Rails memiliki ekosistem yang kaya dengan berbagai pustaka (gems) dan pl
 - Rails official website (https://rubyonrails.org/)
 - Ruby on Rails Guides (https://guides.rubyonrails.org/)
 - Rails architecture illustration (https://medium.com/the-renaissance-developer/ruby-on-rails-http-mvc-and-routes-f02215a46a84)
-- https://www.niagahoster.co.id/blog/ruby-on-rails-adalah/
-- https://codingstudio.id/blog/bahasa-pemrograman-ruby/
-- https://ygok17.medium.com/what-is-object-relational-mapping-orm-in-ruby-on-rails-68d6b89fc75a
+- Get to know Rails [Bahasa Indonesia] (https://www.niagahoster.co.id/blog/ruby-on-rails-adalah/)
+- Ruby Programming Language [Bahasa Indonesia] (https://codingstudio.id/blog/bahasa-pemrograman-ruby/)
+- Object Relational Mapping (ORM) in Rails (https://ygok17.medium.com/what-is-object-relational-mapping-orm-in-ruby-on-rails-68d6b89fc75a)
 
