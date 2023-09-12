@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   end
 end
 ```
-Untuk bacaan lebih lanjut dan tutorial tentang Ruby on Rails, dapat mengunjungi situs web resmi Rails (https://rubyonrails.org/) dan sumber daya online seperti Ruby on Rails Guides (https://guides.rubyonrails.org/) dan Ruby on Rails Tutorial by Michael Hartl (https://www.railstutorial.org/).
+Ruby on Rails memiliki ekosistem yang kaya dengan berbagai pustaka (gems) dan plugin yang dapat digunakan untuk memperluas fungsionalitas aplikasi. Ada banyak gems yang tersedia untuk berbagai keperluan, seperti otentikasi pengguna, pengelolaan gambar, pemrosesan pembayaran, dan masih banyak lagi. Adapun, dengan fitur-fitur seperti migrasi database, pembuatan kode yang cepat dengan metode bawaan, dan pustaka yang kaya, Ruby on Rails memungkinkan development aplikasi web yang cepat dan efisien. Rails juga mendukung prinsip-prinsip Agile dan metode pengembangan cepat lainnya. Untuk bacaan lebih lanjut dan tutorial tentang Ruby on Rails, dapat mengunjungi situs web resmi Rails (https://rubyonrails.org/) dan sumber daya online seperti Ruby on Rails Guides (https://guides.rubyonrails.org/) dan Ruby on Rails Tutorial by Michael Hartl (https://www.railstutorial.org/).
 
 ## Reference
 - Rails official website (https://rubyonrails.org/)
