@@ -17,32 +17,107 @@ Rails dapat dibandingkan dengan dua framework web populer lainnya, yaitu Django 
 ## Framework's architecture  illustration
 ![Rails Illustration](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*KK61kGXrkaFBDfY7uWukyQ.png)
 
-Arsitektur Rails menggunakan pola Model-View-Controller(MVC) dimana Setelah browser melakukan web request pada artikel di suatu web, kemudian *request* tersebut akan diteruskan menuju router yang lalu akan diteruskan menuju controller. Controller akan meminta model untuk mengambil data dan render tampilan yang berada di database sesuai *request* yang diberikan. Lalu model akan memberikan data dan render tampilan artikel tersebut ke controller. Kemudian controller memberikan view data dan render tampilan(UI) yang di-*request* tersebut, selanjutnya view akan meneruskan langsung ke web server dan lalu user dapat melihat dan mengakses artikel tersebut dari browser setelah web server menerima data yang di-*request* dari view. Rails mengikuti konsep konvensi diatas konfigurasi dimana pada ilustrasi ini kita hanya perlu melakukan konfigurasi pada bagian router dan komponen lain menggunakan komponen default dari framework rails itu sendiri. 
+Arsitektur Rails menggunakan pola Model-View-Controller(MVC) dimana Setelah browser melakukan web request pada artikel di suatu web, kemudian *request* tersebut akan diteruskan menuju router yang lalu akan diteruskan menuju controller. Controller akan meminta model untuk mengambil data dan render tampilan yang berada di database sesuai *request* yang diberikan. Lalu model akan memberikan data dan render tampilan artikel tersebut ke controller. Kemudian controller memberikan view data dan render tampilan(UI) yang di-*request* tersebut, selanjutnya view akan meneruskan langsung ke web server dan lalu user dapat melihat dan mengakses artikel tersebut dari browser setelah web server menerima data yang di-*request* dari view. Rails mengikuti konsep konvensi diatas konfigurasi dimana pada ilustrasi ini kita hanya perlu melakukan konfigurasi pada bagian router dan komponen lain menggunakan komponen default dari framework rails itu sendiri.
+Umumnya,rails berisi struktur folder default sebagai berikut :
+| File/folder   |Tujuan  |
+|--------|------|
+| app/  | berisi inti dari aplikasi Rails Anda dan terbagi menjadi beberapa subfolder seperti assests,channel,controller,helpers jobs, mailers,models, dan views | 
+| bin/  |  Berisi file-file skrip yang digunakan untuk menjalankan berbagai tugas pengembangan, seperti server pengembangan dan konsol | 
+| config/  | Direktori yang berisi konfigurasi aplikasi, termasuk file-file seperti routes.rb (mengatur rute), application.rb (konfigurasi aplikasi), dan database.yml (konfigurasi basis data) | 
+| config.ru | berkas konfigurasi yang digunakan dalam proyek Ruby on Rails dan umumnya terkait dengan server web Ruby yang berbasis Rack, seperti server pengembangan WEBrick atau Puma |
+| db/ | Berisi file-file migrasi basis data, yang digunakan untuk mengelola skema basis data aplikasi Anda. termasuk database dari migrasi |
+| Gemfile & Gemfile.lock | File-file ini berisi daftar dependensi (gems) yang digunakan dalam proyek Rails |
+| log/ | File-file log aplikasi akan disimpan di sini, termasuk log produksi, pengembangan, dan pengujian |
+| public/ | Berisi file-file statis yang dapat diakses secara langsung oleh klien, seperti gambar dan favicon |
+| Rakefile |  File yang berisi tugas-tugas (tasks) Rake yang dapat Anda jalankan dari baris perintah |
+| README.md |  Dokumentasi proyek Rails yang dikembangkan |
+| storage/ |  Direktori ini (biasanya) digunakan untuk menyimpan file-file yang diunggah oleh pengguna jika aplikasi Anda memerlukan fitur unggahan file |
+| test/ | Direktori untuk pengujian aplikasi. Ini berisi file-file tes unit, fungsional, dan integrasi |
+| tmp/ | Tempat untuk menyimpan file sementara dan cache |
+| vendor/ | Berisi kode dari pihak ketiga yang digunakan dalam proyek |
+| .gitattributes | digunakan untuk mengatur aksi khusus yang akan diambil oleh Git saat berinteraksi dengan berkas atau direktori tertentu dalam repositori. Ini sering digunakan untuk mengatur cara Git memperlakukan berkas teks dan biner |
+| .gitignore | digunakan untuk memberi tahu Git tentang berkas atau direktori yang harus diabaikan (ignored) saat melakukan operasi seperti git status, git add, atau git commit. Ini sangat berguna untuk menghindari melacak file-file sementara, berkas konfigurasi lokal, atau file log dalam repositori |
+|  .ruby-version | versi default ruby yang digunakan,biasanya menggunakan versi terkini |
 
 ## Source Code Sample
-Berikut contoh source code Ruby on Rails
+Berikut contoh source code Ruby on Rails :
+
+### Model ('User' model):
+Buat file 'user.rb' dalam direktori '/app/models'
 ```ruby
-# Model
-class Post < ApplicationRecord
-  validates :title, presence: true
-  validates :content, presence: true
+# /app/models/user.rb
+class User < ApplicationRecord
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
 end
-
-# View (View menggunakan HTML + Ruby)
-<%= @post.title %>
-<%= @post.content %>
-
-# Controller
-class PostsController < ApplicationController
+```
+### Controller ('UsersController'):
+Buat controller untuk mengelola pengguna dengan perintah berikut
+```bash
+rails generate controller Users
+```
+Ini akan menghasilkan file 'users_controller.rb' dalam direktori '/app/controllers'. Berikut adalah contoh kode dalam controller
+```ruby
+# /app/controllers/users_controller.rb
+class UsersController < ApplicationController
   def index
-    @posts = Post.all
+    @users = User.all
   end
 
   def show
-    @post = Post.find(params[:id])
+    @user = User.find(params[:id])
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to users_path, notice: 'User successfully created.'
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email)
   end
 end
 ```
+### View
+Buat file tampilan dalam direktori '/app/views/users'. Berikut adalah contoh tampilan untuk halaman indeks ('index.html.erb'):
+```ruby
+<!-- /app/views/users/index.html.erb -->
+<h1>Users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.name %> (<%= user.email %>)</li>
+  <% end %>
+</ul>
+
+<%= link_to 'New User', new_user_path %>
+```
+### Routes
+Konfigurasi rute Anda dalam file 'routes.rb' di dalam direktori '/config'
+```ruby
+# /config/routes.rb
+Rails.application.routes.draw do
+  resources :users
+  root 'users#index'
+end
+```
+### Migrasi Database
+untuk melakukan migrasi untuk membuat tabel pengguna menggunakan perintah berikut
+```bash
+rails generate migration CreateUsers
+```
+Ini akan menghasilkan file migrasi dalam direktori '/db/migrate'. Ubah file migrasi tersebut sesuai kebutuhan Anda, lalu jalankan migrasi dengan perintah 'rails db:migrate'.
+
 Ruby on Rails memiliki ekosistem yang kaya dengan berbagai pustaka (gems) dan plugin yang dapat digunakan untuk memperluas fungsionalitas aplikasi. Ada banyak gems yang tersedia untuk berbagai keperluan, seperti otentikasi pengguna, pengelolaan gambar, pemrosesan pembayaran, dan masih banyak lagi. Adapun, dengan fitur-fitur seperti migrasi database, pembuatan kode yang cepat dengan metode bawaan, dan pustaka yang kaya, Ruby on Rails memungkinkan development aplikasi web yang cepat dan efisien. Rails juga mendukung prinsip-prinsip Agile dan metode pengembangan cepat lainnya. Untuk bacaan lebih lanjut dan tutorial tentang Ruby on Rails, dapat mengunjungi situs web resmi Rails (https://rubyonrails.org/) dan sumber daya online seperti Ruby on Rails Guides (https://guides.rubyonrails.org/) dan Ruby on Rails Tutorial by Michael Hartl (https://www.railstutorial.org/).
 
 ## Reference
